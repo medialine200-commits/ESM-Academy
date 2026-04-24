@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ESM Academy - أكاديمية الفروسية بالإسكندرية</title>
+
+  <meta name="description" content="ESM Academy - أكاديمية متخصصة في تعليم وتدريب الفروسية في الإسكندرية. برامج للمبتدئين، الأطفال، وتطوير الفرسان. احجز الآن عبر واتساب." />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f6efe4;
+      color: #171717;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    :root {
+      --gold: #c99a4a;
+      --gold-dark: #9f7131;
+      --dark: #0f171f;
+      --dark-2: #172330;
+      --brown: #4d321b;
+      --cream: #fff8eb;
+      --text: #333;
+      --muted: #666;
+      --white: #fff;
+      --green: #25D366;
+      --shadow: 0 18px 45px rgba(0,0,0,0.12);
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 800;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: var(--dark);
+      line-height: 1.35;
+    }
+
+    .section-title p {
+      max-width: 720px;
+      margin: 12px auto 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 27px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, var(--gold), #e7bd70);
+      color: #111;
+      box-shadow: 0 12px 25px rgba(201,154,74,0.28);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 35px rgba(201,154,74,0.4);
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: #000;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.65);
+      color: white;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: 0.8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(15, 23, 31, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .navbar {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: white;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .logo img {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      background: #111;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 12px;
+      color: #d7c09a;
+      margin-top: -4px;
+      font-weight: 500;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+      color: white;
+      font-size: 15px;
+    }
+
+    nav a {
+      opacity: 0.92;
+      transition: 0.25s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+      opacity: 1;
+    }
+
+    .nav-whatsapp {
+      background: var(--green);
+      color: white !important;
+      padding: 9px 17px;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+
+    .menu-toggle {
+      display: none;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      padding-top: 100px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(201,154,74,0.25), transparent 35%),
+        linear-gradient(90deg, rgba(15,23,31,0.88), rgba(15,23,31,0.58), rgba(15,23,31,0.76)),
+        url("https://images.pexels.com/photos/1996333/pexels-photo-1996333.jpeg?auto=compress&cs=tinysrgb&w=1600") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 140px;
+      background: linear-gradient(transparent, #f6efe4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      animation: heroIn 1s ease both;
+    }
+
+    @keyframes heroIn {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 8px 16px;
+      border-radius: 999px;
+      color: #ffe1a6;
+      font-weight: 800;
+      backdrop-filter: blur(8px);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 62px;
+      line-height: 1.22;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #eeeeee;
+      max-width: 690px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 38px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      background: rgba(255,255,255,0.11);
+      border: 1px solid rgba(255,255,255,0.13);
+      padding: 14px 20px;
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-stat strong {
+      display: block;
+      color: var(--gold);
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .hero-stat small {
+      color: #ddd;
+    }
+
+    /* Quick Info */
+    .quick-info {
+      position: relative;
+      z-index: 5;
+      margin-top: -55px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border: 1px solid rgba(201,154,74,0.16);
+      transition: 0.3s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .info-card .icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .info-card h3 {
+      color: var(--brown);
+      margin-bottom: 4px;
+      font-size: 20px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 70%;
+      height: 70%;
+      background: var(--gold);
+      border-radius: 30px;
+      z-index: -1;
+      opacity: 0.35;
+    }
+
+    .about-image img {
+      height: 540px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-floating {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      left: 24px;
+      background: rgba(15,23,31,0.88);
+      color: white;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .about-floating strong {
+      color: var(--gold);
+      font-size: 30px;
+    }
+
+    .about-text h2 {
+      font-size: 40px;
+      color: var(--dark);
+      margin-bottom: 18px;
+      line-height: 1.35;
+    }
+
+    .about-text p {
+      color: var(--text);
+      margin-bottom: 16px;
+      font-size: 17px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+      margin-top: 25px;
+    }
+
+    .feature {
+      background: white;
+      padding: 15px 16px;
+      border-radius: 15px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+      color: var(--brown);
+      font-weight: 800;
+      border-right: 4px solid var(--gold);
+    }
+
+    /* Trust */
+    .trust {
+      background:
+        linear-gradient(rgba(15,23,31,0.92), rgba(15,23,31,0.92)),
+        url("https://images.pexels.com/photos/52500/horse-herd-fog-nature-52500.jpeg?auto=compress&cs=tinysrgb&w=1600") center/cover no-repeat;
+      color: white;
+    }
+
+    .trust .section-title h2 {
+      color: white;
+    }
+
+    .trust .section-title p {
+      color: #ddd;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .trust-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 28px 20px;
+      border-radius: 22px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    .trust-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(201,154,74,0.55);
+    }
+
+    .trust-card .icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .trust-card h3 {
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-size: 21px;
+    }
+
+    .trust-card p {
+      color: #e5e5e5;
+      font-size: 15px;
+    }
+
+    /* Programs */
+    .programs {
+      background: var(--cream);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .program-card {
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.08);
+      transition: 0.3s ease;
+      border: 1px solid rgba(201,154,74,0.13);
+    }
+
+    .program-card:hover {
+      transform: translateY(-9px);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.14);
+    }
+
+    .program-card img {
+      height: 235px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .program-content {
+      padding: 25px;
+    }
+
+    .program-content h3 {
+      color: var(--brown);
+      font-size: 23px;
+      margin-bottom: 9px;
+    }
+
+    .program-content p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .program-content ul {
+      padding-right: 19px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .program-content li {
+      margin-bottom: 4px;
+    }
+
+    .small-link {
+      color: var(--gold-dark);
+      font-weight: 900;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 22px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.07);
+      text-align: center;
+      border-bottom: 5px solid var(--gold);
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-card .icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .service-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* Steps */
+    .steps {
+      background: var(--cream);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      counter-reset: step;
+    }
+
+    .step {
+      background: white;
+      padding: 28px 20px;
+      border-radius: 24px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.07);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      position: absolute;
+      top: 12px;
+      left: 18px;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 900;
+      color: rgba(201,154,74,0.18);
+    }
+
+    .step h3 {
+      color: var(--brown);
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* Video */
+    .video-section {
+      background:
+        linear-gradient(rgba(15,23,31,0.86), rgba(15,23,31,0.86)),
+        url("https://images.pexels.com/photos/2896035/pexels-photo-2896035.jpeg?auto=compress&cs=tinysrgb&w=1600") center/cover no-repeat;
+      color: white;
+    }
+
+    .video-section .section-title h2 {
+      color: white;
+    }
+
+    .video-section .section-title p {
+      color: #ddd;
+    }
+
+    .video-box {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 22px 55px rgba(0,0,0,0.38);
+      border: 1px solid rgba(255,255,255,0.15);
+      background: #000;
+    }
+
+    .video-box video {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      height: 245px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.45s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item span {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      background: rgba(15,23,31,0.78);
+      color: white;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      backdrop-filter: blur(8px);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: var(--cream);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 28px;
+      border-radius: 24px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.07);
+      border-top: 5px solid var(--gold);
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .testimonial p {
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .testimonial strong {
+      color: var(--brown);
+    }
+
+    /* FAQ */
+    .faq-box {
+      max-width: 880px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      margin-bottom: 15px;
+      padding: 20px 22px;
+      border-radius: 18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+      border: 1px solid rgba(201,154,74,0.12);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      color: var(--brown);
+      font-size: 18px;
+    }
+
+    details p {
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    /* CTA */
+    .cta {
+      padding: 70px 0;
+      background:
+        linear-gradient(135deg, rgba(15,23,31,0.95), rgba(77,50,27,0.92)),
+        url("https://images.pexels.com/photos/1996334/pexels-photo-1996334.jpeg?auto=compress&cs=tinysrgb&w=1600") center/cover no-repeat;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #eee;
+      max-width: 720px;
+      margin: 0 auto 25px;
+      font-size: 18px;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--cream);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .contact-info {
+      background:
+        linear-gradient(160deg, var(--dark), var(--dark-2));
+      color: white;
+      padding: 35px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-info::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      background: rgba(201,154,74,0.17);
+      border-radius: 50%;
+      left: -50px;
+      bottom: -50px;
+    }
+
+    .contact-info h3 {
+      color: var(--gold);
+      font-size: 29px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-item {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 16px;
+      border-radius: 16px;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+
+    .contact-item a:hover {
+      color: var(--gold);
+    }
+
+    .contact-form {
+      background: white;
+      padding: 35px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      margin-bottom: 15px;
+      outline: none;
+      font-size: 15px;
+      background: #fff;
+      transition: 0.25s;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(201,154,74,0.13);
+    }
+
+    .contact-form textarea {
+      height: 130px;
+      resize: none;
+    }
+
+    .contact-form button {
+      width: 100%;
+    }
+
+    /* Footer */
+    footer {
+      background: #080d12;
+      color: white;
+      padding: 55px 0 22px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 32px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo img {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+
+    footer h3 {
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    footer p,
+    footer li {
+      color: #cfcfcf;
+      font-size: 15px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 8px;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      left: 22px;
+      bottom: 22px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 31px;
+      z-index: 1002;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37,211,102,0.45);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37,211,102,0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37,211,102,0);
+      }
+    }
+
+    .back-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--dark);
+      color: white;
+      display: grid;
+      place-items: center;
+      z-index: 1002;
+      font-size: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 1050px) {
+      nav {
+        position: absolute;
+        top: 82px;
+        right: 0;
+        width: 100%;
+        background: rgba(15,23,31,0.98);
+        display: none;
+        padding: 22px;
+      }
+
+      nav.active {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .info-grid,
+      .about-grid,
+      .trust-grid,
+      .cards-grid,
+      .services-grid,
+      .steps-grid,
+      .gallery-grid,
+      .testimonials-grid,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .section {
+        padding: 65px 0;
+      }
+
+      .logo {
+        font-size: 15px;
+      }
+
+      .logo img {
+        width: 54px;
+        height: 54px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 145px 0 100px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .section-title h2 {
+        font-size: 29px;
+      }
+
+      .info-grid,
+      .trust-grid,
+      .cards-grid,
+      .services-grid,
+      .steps-grid,
+      .gallery-grid,
+      .testimonials-grid,
+      .footer-grid,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-info {
+        margin-top: 25px;
+      }
+
+      .about-image img {
+        height: 390px;
+      }
+
+      .gallery-item {
+        height: 250px;
+      }
+
+      .video-box video {
+        height: 300px;
+      }
+
+      .cta h2 {
+        font-size: 29px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="logo" aria-label="ESM Academy Home">
+        <img src="logo.jpg" alt="ESM Academy Logo">
+        <div>
+          ESM Academy
+          <small>أكاديمية الفروسية</small>
+        </div>
+      </a>
+
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+      <nav id="navMenu">
+        <ul>
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#programs">البرامج</a></li>
+          <li><a href="#services">الخدمات</a></li>
+          <li><a href="#gallery">المعرض</a></li>
+          <li><a href="#faq">الأسئلة</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+          <li><a class="nav-whatsapp" href="https://wa.me/201006008671" target="_blank">واتساب</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">🐎 تعليم وتدريب الفروسية في الإسكندرية</div>
+
+        <h1>
+          ابدأ رحلتك في عالم الفروسية مع
+          <span>ESM Academy</span>
+        </h1>
+
+        <p>
+          أكاديمية متخصصة في تعليم ركوب الخيل للمبتدئين وتطوير مستوى الفرسان،
+          من خلال برامج تدريب آمنة ومنظمة للأطفال والكبار داخل الإسكندرية.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-main" href="https://wa.me/201006008671?text=مرحبًا، أريد حجز تدريب في ESM Academy" target="_blank">
+            احجز تدريبك الآن
+          </a>
+
+          <a class="btn btn-outline" href="#programs">
+            شاهد البرامج التدريبية
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>2.3K+</strong>
+            <small>متابع على فيسبوك</small>
+          </div>
+
+          <div class="hero-stat">
+            <strong>3</strong>
+            <small>مستويات تدريب</small>
+          </div>
+
+          <div class="hero-stat">
+            <strong>24/7</strong>
+            <small>تواصل وحجز</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Info -->
+  <section class="quick-info">
+    <div class="container info-grid">
+      <div class="info-card fade-up">
+        <div class="icon">📍</div>
+        <h3>الموقع</h3>
+        <p>الإسكندرية، مصر</p>
+      </div>
+
+      <div class="info-card fade-up">
+        <div class="icon">📞</div>
+        <h3>التواصل</h3>
+        <p>01006008671</p>
+      </div>
+
+      <div class="info-card fade-up">
+        <div class="icon">🏇</div>
+        <h3>المستويات</h3>
+        <p>مبتدئ - متوسط - متقدم</p>
+      </div>
+
+      <div class="info-card fade-up">
+        <div class="icon">⏰</div>
+        <h3>مواعيد العمل</h3>
+        <p>مفتوح دائمًا</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="about-image fade-up">
+        <img src="https://images.pexels.com/photos/3014019/pexels-photo-3014019.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="تدريب الفروسية وركوب الخيل">
+        <div class="about-floating">
+          <strong>ESM Academy</strong>
+          <p>تعليم فروسية بأسلوب آمن ومنظم يناسب الأطفال والكبار وكل المستويات.</p>
+        </div>
+      </div>
+
+      <div class="about-text fade-up">
+        <h2>من نحن</h2>
+
+        <p>
+          أكاديمية ESM للفروسية هي مركز متخصص في تعليم وتدريب ركوب الخيل داخل الإسكندرية،
+          نساعد المتدربين على اكتساب الثقة، التوازن، والتحكم الصحيح أثناء الركوب.
+        </p>
+
+        <p>
+          نقدم برامج مناسبة للأطفال والكبار، بداية من أول تجربة ركوب وحتى التدريب المتقدم،
+          مع التركيز على السلامة والانضباط وفهم طبيعة الخيل والتعامل معه بطريقة صحيحة.
+        </p>
+
+        <div class="features">
+          <div class="feature">✓ تدريب آمن ومنظم</div>
+          <div class="feature">✓ مناسب للأطفال والكبار</div>
+          <div class="feature">✓ برامج لكل المستويات</div>
+          <div class="feature">✓ حجز مباشر عبر واتساب</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section class="section trust">
+    <div class="container">
+      <div class="section-title fade-up">
+        <span>لماذا تختارنا؟</span>
+        <h2>تجربة تدريب موثوقة ومريحة</h2>
+        <p>
+          نركز على تعليم الفروسية بطريقة عملية، آمنة، ومناسبة لكل متدرب حسب مستواه.
+        </p>
+      </div>
+
+      <div class="trust-grid">
+        <div class="trust-card fade-up">
+          <div class="icon">🛡️</div>
+          <h3>أمان أولًا</h3>
+          <p>تدريب تدريجي يراعي السلامة قبل وأثناء ركوب الخيل.</p>
+        </div>
+
+        <div class="trust-card fade-up">
+          <div class="icon">👨‍🏫</div>
+          <h3>توجيه احترافي</h3>
+          <p>متابعة مستمرة لتصحيح الوضعية وتحسين التحكم والثقة.</p>
+        </div>
+
+        <div class="trust-card fade-up">
+          <div class="icon">🐴</div>
+          <h3>خيول مناسبة</h3>
+          <p>اختيار الخيل المناسب حسب عمر ومستوى وخبرة المتدرب.</p>
+        </div>
+
+        <div class="trust-card fade-up">
+          <div class="icon">📲</div>
+          <h3>حجز سهل</h3>
+          <p>تواصل سريع للحجز والاستفسار من خلال الهاتف أو واتساب.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="section programs" id="programs">
+    <div class="container">
+      <div class="section-title fade-up">
+        <span>برامجنا التدريبية</span>
+        <h2>برامج فروسية لكل مستوى</h2>
+        <p>
+          اختر البرنامج المناسب لك وابدأ التدريب خطوة بخطوة داخل بيئة آمنة وممتعة.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="program-card fade-up">
+          <img src="https://images.pexels.com/photos/1996332/pexels-photo-1996332.jpeg?auto=compress&cs=tinysrgb&w=900" alt="برنامج المبتدئين في الفروسية">
+          <div class="program-content">
+            <h3>برنامج المبتدئين</h3>
+            <p>مناسب لمن يركب الخيل لأول مرة ويريد تعلم الأساسيات بثقة.</p>
+            <ul>
+              <li>التعرف على الخيل</li>
+              <li>طريقة الجلوس الصحيحة</li>
+              <li>التوازن والتحكم الأساسي</li>
+            </ul>
+            <a class="small-link" href="https://wa.me/201006008671?text=مرحبًا، أريد الاستفسار عن برنامج المبتدئين" target="_blank">استفسر عن البرنامج ←</a>
+          </div>
+        </div>
+
+        <div class="program-card fade-up">
+          <img src="https://images.pexels.com/photos/106070/pexels-photo-106070.jpeg?auto=compress&cs=tinysrgb&w=900" alt="تعليم ركوب الخيل للأطفال">
+          <div class="program-content">
+            <h3>برنامج الأطفال</h3>
+            <p>برنامج آمن ومبسط للأطفال يساعدهم على بناء الثقة والانضباط.</p>
+            <ul>
+              <li>تدريب تدريجي للأطفال</li>
+              <li>متابعة أثناء الركوب</li>
+              <li>تجربة ممتعة وآمنة</li>
+            </ul>
+            <a class="small-link" href="https://wa.me/201006008671?text=مرحبًا، أريد الاستفسار عن برنامج الأطفال" target="_blank">استفسر عن البرنامج ←</a>
+          </div>
+        </div>
+
+        <div class="program-card fade-up">
+          <img src="https://images.pexels.com/photos/1996330/pexels-photo-1996330.jpeg?auto=compress&cs=tinysrgb&w=900" alt="تطوير مهارات ركوب الخيل">
+          <div class="program-content">
+            <h3>تطوير الفرسان</h3>
+            <p>للراغبين في تحسين الأداء وتطوير مهارات الركوب والتحكم.</p>
+            <ul>
+              <li>تصحيح وضعية الركوب</li>
+              <li>تحكم متقدم</li>
+              <li>تدريبات توازن وسرعة</li>
+            </ul>
+            <a class="small-link" href="https://wa.me/201006008671?text=مرحبًا، أريد الاستفسار عن برنامج تطوير الفرسان" target="_blank">استفسر عن البرنامج ←</a>
+          </div>
+        </div>
+
+        <div class="program-card fade-up">
+          <img src="https://images.pexels.com/photos/635499/pexels-photo-635499.jpeg?auto=compress&cs=tinysrgb&w=900" alt="العناية بالخيل والتعامل معه">
+          <div class="program-content">
+            <h3>التعامل مع الخيل</h3>
+            <p>تعلم أساسيات رعاية الخيل وفهم سلوكه داخل الإسطبل.</p>
+            <ul>
+              <li>فهم سلوك الخيل</li>
+              <li>تجهيز الخيل للركوب</li>
+              <li>أساسيات السلامة</li>
+            </ul>
+            <a class="small-link" href="https://wa.me/201006008671?text=مرحبًا، أريد الاستفسار عن تدريب التعامل مع الخيل" target="_blank">استفسر عن البرنامج ←</a>
+          </div>
+        </div>
+
+        <div class="program-card fade-up">
+          <img src="https://images.pexels.com/photos/1996334/pexels-photo-1996334.jpeg?auto=compress&cs=tinysrgb&w=900" alt="تجربة ركوب الخيل">
+          <div class="program-content">
+            <h3>تجربة ركوب الخيل</h3>
+            <p>جلسة تعريفية مناسبة للأفراد والعائلات والأصدقاء.</p>
+            <ul>
+              <li>تدريب بسيط قبل الركوب</li>
+              <li>جولة ممتعة</li>
+              <li>مناسبة للتصوير والذكريات</li>
+            </ul>
+            <a class="small-link" href="https://wa.me/201006008671?text=مرحبًا، أريد الاستفسار عن تجربة ركوب الخيل" target="_blank">استفسر عن البرنامج ←</a>
+          </div>
+        </div>
+
+        <div class="program-card fade-up">
+          <img src="https://images.pexels.com/photos/2896035/pexels-photo-2896035.jpeg?auto=compress&cs=tinysrgb&w=900" alt="تدريب فروسية خاص">
+          <div class="program-content">
+            <h3>تدريب فردي خاص</h3>
+            <p>برنامج مخصص حسب مستوى وهدف كل متدرب لتحقيق تقدم أسرع.</p>
+            <ul>
+              <li>خطة تدريب شخصية</li>
+              <li>متابعة دقيقة</li>
+              <li>تحسين مهارات الركوب</li>
+            </ul>
+            <a class="small-link" href="https://wa.me/201006008671?text=مرحبًا، أريد الاستفسار عن التدريب الفردي الخاص" target="_blank">استفسر عن البرنامج ←</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-title fade-up">
+        <span>خدمات الأكاديمية</span>
+        <h2>كل ما تحتاجه لتعلم الفروسية</h2>
+        <p>
+          خدمات تدريب وتجربة متكاملة تساعدك على دخول عالم الفروسية بثقة.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="icon">🐎</div>
+          <h3>تعليم الركوب</h3>
+          <p>تعلم أساسيات ركوب الخيل من البداية خطوة بخطوة.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="icon">👨‍🏫</div>
+          <h3>تدريب فردي</h3>
+          <p>جلسات خاصة حسب مستوى واحتياج كل متدرب.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="icon">👧</div>
+          <h3>برامج للأطفال</h3>
+          <p>تدريبات مناسبة للأطفال في بيئة آمنة وممتعة.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="icon">🏇</div>
+          <h3>تطوير المستوى</h3>
+          <p>رفع كفاءة الفرسان وتحسين الأداء العملي.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="icon">🐴</div>
+          <h3>التعامل مع الخيل</h3>
+          <p>تعلم السلوك والعناية والسلامة داخل الإسطبل.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="icon">📸</div>
+          <h3>جلسات تصوير</h3>
+          <p>تجربة ركوب مميزة مناسبة للصور والذكريات.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="icon">🛡️</div>
+          <h3>سلامة وأمان</h3>
+          <p>تدريب منظم يراعي تعليمات السلامة في كل خطوة.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="icon">📞</div>
+          <h3>حجز سريع</h3>
+          <p>تواصل مباشر عبر الهاتف أو واتساب للحجز والاستفسار.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="section steps">
+    <div class="container">
+      <div class="section-title fade-up">
+        <span>طريقة الحجز</span>
+        <h2>ابدأ التدريب في 4 خطوات بسيطة</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step fade-up">
+          <h3>تواصل معنا</h3>
+          <p>اضغط على زر واتساب أو اتصل بالرقم الموجود في الموقع.</p>
+        </div>
+
+        <div class="step fade-up">
+          <h3>حدد مستواك</h3>
+          <p>اختر هل أنت مبتدئ، متوسط، متقدم، أو تريد تجربة ركوب فقط.</p>
+        </div>
+
+        <div class="step fade-up">
+          <h3>اختيار الموعد</h3>
+          <p>نساعدك في تحديد الموعد المناسب حسب تفرغك.</p>
+        </div>
+
+        <div class="step fade-up">
+          <h3>ابدأ التدريب</h3>
+          <p>احضر في الموعد وابدأ رحلتك في الفروسية بثقة وأمان.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="section video-section">
+    <div class="container">
+      <div class="section-title fade-up">
+        <span>شاهد التجربة</span>
+        <h2>الفروسية ليست رياضة فقط، بل أسلوب حياة</h2>
+        <p>
+          تعلم الثقة، التحكم، الانضباط، وبناء علاقة مميزة مع الخيل.
+        </p>
+      </div>
+
+      <div class="video-box fade-up">
+        <video controls poster="https://images.pexels.com/photos/1996333/pexels-photo-1996333.jpeg?auto=compress&cs=tinysrgb&w=1200">
+          <source src="https://videos.pexels.com/video-files/856953/856953-hd_1280_720_30fps.mp4" type="video/mp4">
+          متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-title fade-up">
+        <span>معرض الصور</span>
+        <h2>لقطات من عالم الفروسية</h2>
+        <p>
+          صور مختارة تعبر عن الخيل، التدريب، وتجربة ركوب الخيل داخل أجواء احترافية.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item fade-up">
+          <img src="https://images.pexels.com/photos/1996333/pexels-photo-1996333.jpeg?auto=compress&cs=tinysrgb&w=700" alt="خيل عربي">
+          <span>خيل عربي</span>
+        </div>
+
+        <div class="gallery-item fade-up">
+          <img src="https://images.pexels.com/photos/1996332/pexels-photo-1996332.jpeg?auto=compress&cs=tinysrgb&w=700" alt="ركوب الخيل">
+          <span>ركوب الخيل</span>
+        </div>
+
+        <div class="gallery-item fade-up">
+          <img src="https://images.pexels.com/photos/3014019/pexels-photo-3014019.jpeg?auto=compress&cs=tinysrgb&w=700" alt="تدريب الفروسية">
+          <span>تدريب الفروسية</span>
+        </div>
+
+        <div class="gallery-item fade-up">
+          <img src="https://images.pexels.com/photos/635499/pexels-photo-635499.jpeg?auto=compress&cs=tinysrgb&w=700" alt="خيل داخل الإسطبل">
+          <span>داخل الإسطبل</span>
+        </div>
+
+        <div class="gallery-item fade-up">
+          <img src="https://images.pexels.com/photos/106070/pexels-photo-106070.jpeg?auto=compress&cs=tinysrgb&w=700" alt="تعليم الفروسية">
+          <span>تعليم الفروسية</span>
+        </div>
+
+        <div class="gallery-item fade-up">
+          <img src="https://images.pexels.com/photos/1996330/pexels-photo-1996330.jpeg?auto=compress&cs=tinysrgb&w=700" alt="فارس وخيل">
+          <span>فارس وخيل</span>
+        </div>
+
+        <div class="gallery-item fade-up">
+          <img src="https://images.pexels.com/photos/1996334/pexels-photo-1996334.jpeg?auto=compress&cs=tinysrgb&w=700" alt="تجربة ركوب الخيل">
+          <span>تجربة ركوب</span>
+        </div>
+
+        <div class="gallery-item fade-up">
+          <img src="https://images.pexels.com/photos/2896035/pexels-photo-2896035.jpeg?auto=compress&cs=tinysrgb&w=700" alt="تدريب خيل احترافي">
+          <span>تدريب احترافي</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-title fade-up">
+        <span>آراء العملاء</span>
+        <h2>تجربة مريحة من أول تدريب</h2>
+        <p>
+          نماذج آراء يمكن تعديلها لاحقًا حسب تقييمات العملاء الحقيقية.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial fade-up">
+          <div class="stars">★★★★★</div>
+          <p>تجربة ممتازة، التدريب كان واضح ومنظم وساعدني أتغلب على الخوف من ركوب الخيل.</p>
+          <strong>متدرب مبتدئ</strong>
+        </div>
+
+        <div class="testimonial fade-up">
+          <div class="stars">★★★★★</div>
+          <p>مكان مناسب للأطفال، وطريقة التدريب هادئة وآمنة جدًا.</p>
+          <strong>ولي أمر</strong>
+        </div>
+
+        <div class="testimonial fade-up">
+          <div class="stars">★★★★★</div>
+          <p>استفدت جدًا في تحسين التوازن والتحكم، والتدريب الفردي فرق معايا.</p>
+          <strong>متدرب متوسط</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-title fade-up">
+        <span>الأسئلة الشائعة</span>
+        <h2>كل ما تريد معرفته قبل الحجز</h2>
+      </div>
+
+      <div class="faq-box fade-up">
+        <details>
+          <summary>هل التدريب مناسب للمبتدئين؟</summary>
+          <p>نعم، يوجد برنامج مخصص للمبتدئين يبدأ من الأساسيات خطوة بخطوة.</p>
+        </details>
+
+        <details>
+          <summary>هل يوجد تدريب للأطفال؟</summary>
+          <p>نعم، نوفر برامج آمنة ومناسبة للأطفال تحت إشراف تدريبي مناسب.</p>
+        </details>
+
+        <details>
+          <summary>هل أحتاج خبرة سابقة؟</summary>
+          <p>لا، يمكنك البدء حتى لو لم تركب الخيل من قبل.</p>
+        </details>
+
+        <details>
+          <summary>كيف أحجز موعد تدريب؟</summary>
+          <p>يمكنك الحجز مباشرة من خلال الاتصال أو واتساب على رقم 01006008671.</p>
+        </details>
+
+        <details>
+          <summary>أين تقع الأكاديمية؟</summary>
+          <p>الأكاديمية في الإسكندرية، مصر.</p>
+        </details>
+
+        <details>
+          <summary>هل يوجد تدريب فردي؟</summary>
+          <p>نعم، يوجد تدريب فردي خاص حسب مستوى وهدف كل متدرب.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container fade-up">
+      <h2>جاهز تبدأ أول تدريب فروسية؟</h2>
+      <p>
+        تواصل معنا الآن واحجز برنامجك المناسب، سواء كنت مبتدئًا أو تريد تطوير مستواك.
+      </p>
+
+      <div class="cta-actions">
+        <a class="btn btn-main" href="https://wa.me/201006008671?text=مرحبًا، أريد حجز تدريب في ESM Academy" target="_blank">
+          احجز عبر واتساب
+        </a>
+
+        <a class="btn btn-outline" href="tel:01006008671">
+          اتصال مباشر
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-title fade-up">
+        <span>تواصل معنا</span>
+        <h2>احجز تدريبك الآن</h2>
+        <p>
+          املأ البيانات وسيتم فتح واتساب برسالة جاهزة لإرسالها مباشرة.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info fade-up">
+          <h3>بيانات التواصل</h3>
+
+          <div class="contact-item">
+            <strong>الهاتف / واتساب</strong>
+            <a href="tel:01006008671">01006008671</a>
+          </div>
+
+          <div class="contact-item">
+            <strong>الموقع</strong>
+            الإسكندرية، مصر
+          </div>
+
+          <div class="contact-item">
+            <strong>فيسبوك</strong>
+            <a href="https://www.facebook.com/share/1AgbkRs3s1/?mibextid=wwXIfr" target="_blank">
+              ESM Academy - أكاديمية الفروسية
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <strong>إنستجرام</strong>
+            <a href="https://www.instagram.com/e.s.m._academy?igsh=MXdpbHJhbXhoeXJkYw==" target="_blank">
+              e.s.m._academy
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <strong>مواعيد العمل</strong>
+            مفتوح دائمًا
+          </div>
+        </div>
+
+        <form class="contact-form fade-up" onsubmit="sendWhatsApp(event)">
+          <div class="form-row">
+            <input type="text" id="name" placeholder="الاسم" required>
+            <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+          </div>
+
+          <div class="form-row">
+            <select id="program" required>
+              <option value="">اختر البرنامج</option>
+              <option value="برنامج المبتدئين">برنامج المبتدئين</option>
+              <option value="برنامج الأطفال">برنامج الأطفال</option>
+              <option value="تطوير الفرسان">تطوير الفرسان</option>
+              <option value="التعامل مع الخيل">التعامل مع الخيل</option>
+              <option value="تجربة ركوب الخيل">تجربة ركوب الخيل</option>
+              <option value="تدريب فردي خاص">تدريب فردي خاص</option>
+            </select>
+
+            <select id="level" required>
+              <option value="">مستواك الحالي</option>
+              <option value="مبتدئ">مبتدئ</option>
+              <option value="متوسط">متوسط</option>
+              <option value="متقدم">متقدم</option>
+              <option value="أول مرة أركب خيل">أول مرة أركب خيل</option>
+            </select>
+          </div>
+
+          <textarea id="message" placeholder="اكتب أي تفاصيل إضافية"></textarea>
+
+          <button class="btn btn-main" type="submit">
+            إرسال الطلب عبر واتساب
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="logo.jpg" alt="ESM Academy Logo">
+          <div>
+            <h3>ESM Academy</h3>
+            <p>أكاديمية الفروسية</p>
+          </div>
+        </div>
+
+        <p>
+          أكاديمية متخصصة في تعليم وتدريب الفروسية في الإسكندرية،
+          تقدم برامج تدريب مناسبة للأطفال والكبار ولكل المستويات.
+        </p>
+      </div>
+
+      <div>
+        <h3>روابط سريعة</h3>
+        <ul>
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#programs">البرامج</a></li>
+          <li><a href="#services">الخدمات</a></li>
+          <li><a href="#gallery">المعرض</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>تواصل</h3>
+        <ul>
+          <li><a href="tel:01006008671">01006008671</a></li>
+          <li>الإسكندرية، مصر</li>
+          <li><a href="https://www.instagram.com/e.s.m._academy?igsh=MXdpbHJhbXhoeXJkYw==" target="_blank">Instagram</a></li>
+          <li><a href="https://www.facebook.com/share/1AgbkRs3s1/?mibextid=wwXIfr" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      جميع الحقوق محفوظة © ESM Academy - أكاديمية الفروسية
+    </div>
+  </footer>
+
+  <!-- Floating Buttons -->
+  <a class="whatsapp-float" href="https://wa.me/201006008671?text=مرحبًا، أريد حجز تدريب في ESM Academy" target="_blank" aria-label="WhatsApp">
+    ☎
+  </a>
+
+  <a class="back-top" id="backTop" href="#home" aria-label="Back to top">
+    ↑
+  </a>
+
+  <script>
+    const navMenu = document.getElementById("navMenu");
+    const backTop = document.getElementById("backTop");
+
+    function toggleMenu() {
+      navMenu.classList.toggle("active");
+    }
+
+    document.querySelectorAll("nav a").forEach(function(link) {
+      link.addEventListener("click", function() {
+        navMenu.classList.remove("active");
+      });
+    });
+
+    function sendWhatsApp(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const program = document.getElementById("program").value;
+      const level = document.getElementById("level").value;
+      const message = document.getElementById("message").value.trim();
+
+      const text =
+        "مرحبًا، أريد حجز تدريب في ESM Academy" +
+        "\n\nالاسم: " + name +
+        "\nرقم الهاتف: " + phone +
+        "\nالبرنامج المطلوب: " + program +
+        "\nالمستوى الحالي: " + level +
+        "\nملاحظات: " + (message || "لا يوجد");
+
+      const whatsappURL = "https://wa.me/201006008671?text=" + encodeURIComponent(text);
+      window.open(whatsappURL, "_blank");
+    }
+
+    const animatedItems = document.querySelectorAll(".fade-up");
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    animatedItems.forEach(function(item) {
+      observer.observe(item);
+    });
+
+    window.addEventListener("scroll", function() {
+      if (window.scrollY > 500) {
+        backTop.classList.add("show");
+      } else {
+        backTop.classList.remove("show");
+      }
+    });
+  </script>
+
+</body>
+</html>
